@@ -39,6 +39,7 @@ Ce projet est une **application web front-end** pour un mini système de gestion
     -   Affichage tabulaire des clients.
     -   Recherche en temps réel par nom, email, etc.
     -   Tri dynamique sur plusieurs colonnes.
+    -   **Pagination** pour naviguer facilement entre les pages de clients.
 -   **Fiche Client Détaillée**:
     -   Vue complète des informations d'un client.
     -   Historique des activités (appels, emails, réunions).
@@ -47,6 +48,10 @@ Ce projet est une **application web front-end** pour un mini système de gestion
     -   Ajout de nouveaux clients avec persistance des données dans le `localStorage`.
 -   **Design Responsive**: L'interface est entièrement responsive et s'adapte aux appareils mobiles.
 
+### ✨ Bonus
+- **Gestion d'état centralisée** avec **[Zustand](https://github.com/pmndrs/zustand)** pour une logique plus propre et maintenable.
+- **Tests unitaires et d'intégration** avec **[Jest](https://jestjs.io/)** et **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** pour garantir la qualité du code.
+
 ---
 
 ## 🔧 Stack Technique
@@ -54,7 +59,8 @@ Ce projet est une **application web front-end** pour un mini système de gestion
 <table>
 <tr>
 <td align="center"><strong>Frontend</strong></td>
-<td align="center"><strong>Outils & Librairies</strong></td>
+<td align="center"><strong>State Management</strong></td>
+<td align="center"><strong>Testing</strong></td>
 </tr>
 <tr>
 <td>
@@ -62,14 +68,22 @@ Ce projet est une **application web front-end** pour un mini système de gestion
 - **[Next.js 14](https://nextjs.org/)** - Framework React
 - **[TypeScript](https://www.typescriptlang.org/)** - Typage statique
 - **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS
+- **App Router** - Routing moderne
+- **[React Hook Form](https://react-hook-form.com/)** - Gestion de formulaires
 
 </td>
 <td>
 
-- **App Router** - Routing moderne
-- **[React Hook Form](https://react-hook-form.com/)** - Gestion de formulaires
-- **React Hooks** - Gestion d'état
-- **`localStorage`** - Persistance des données en local
+- **[Zustand](https://github.com/pmndrs/zustand)** - Léger et puissant
+- **React Hooks** - Gestion d'état local
+- **`localStorage`** - Persistance des données
+
+</td>
+<td>
+
+- **[Jest](https://jestjs.io/)** - Framework de test
+- **[React Testing Library](https://testing-library.com/)** - Tests orientés utilisateur
+- **`ts-jest`** - Intégration de Jest avec TypeScript
 
 </td>
 </tr>
@@ -126,6 +140,7 @@ Mini-CRM/
 │   │   ├── 📄 layout.tsx            # Layout principal
 │   │   └── 📄 page.tsx              # Page de connexion
 │   ├── 📂 components/               # Composants réutilisables
+│   │   ├── 📂 __tests__/            # Tests des composants
 │   │   ├── 📂 ui/                   # Composants UI (Button, Card, etc.)
 │   │   ├── 📂 Layout/               # Composants de mise en page (Navbar)
 │   │   ├── 📄 ClientForm.tsx
@@ -134,10 +149,14 @@ Mini-CRM/
 │   ├── 📂 data/
 │   │   └── 📄 mockClients.ts       # Données de simulation
 │   ├── 📂 hooks/
-│   │   └── 📄 useLocalStorage.ts   # Hook pour le localStorage
+│   │   └── 📄 useLocalStorage.ts   # Hook pour le localStorage (non utilisé avec Zustand)
+│   ├── 📂 store/
+│   │   └── 📄 clientStore.ts       # Store Zustand pour les clients
 │   └── 📂 types/
 │       └── 📄 client.ts            # Définitions de types
 ├── 📄 .gitignore
+├── 📄 jest.config.js               # Configuration de Jest
+├── 📄 jest.setup.js                # Fichier de setup pour Jest
 ├── 📄 next.config.js
 ├── 📄 package.json
 ├── 📄 tailwind.config.js
@@ -154,6 +173,9 @@ npm run dev
 
 # Construire l'application pour la production
 npm run build
+
+# Lancer les tests
+npm run test
 
 # Lancer en mode production
 npm run start
