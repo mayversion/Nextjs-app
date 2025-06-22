@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { Client } from '@/types/client';
 import { mockClients } from '@/data/mockClients';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,8 +7,7 @@ interface ClientState {
   clients: Client[];
   isInitialized: boolean;
   initializeClients: () => void;
-  addClient: (client: Omit<Client, 'id' | 'createdAt' | 'tags'>) => void;
-  getClientById: (id: string) => Client | undefined;
+  addClient: (client: Omit<Client, 'id' | 'createdAt' | 'tags' | 'activities'>) => void;
 }
 
 const useClientStore = create<ClientState>((set, get) => ({
@@ -34,12 +33,13 @@ const useClientStore = create<ClientState>((set, get) => ({
     }
   },
 
-  addClient: (clientData) => {
+  addClient: (clientData: Omit<Client, 'id' | 'createdAt' | 'tags' | 'activities'>) => {
     const newClient: Client = {
       ...clientData,
       id: uuidv4(),
       createdAt: new Date().toISOString(),
       tags: [], 
+      activities: [],
     };
     set((state) => {
       const updatedClients = [...state.clients, newClient];
@@ -48,10 +48,6 @@ const useClientStore = create<ClientState>((set, get) => ({
       }
       return { clients: updatedClients };
     });
-  },
-
-  getClientById: (id: string) => {
-    return get().clients.find((client) => client.id === id);
   },
 }));
 

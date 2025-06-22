@@ -6,9 +6,9 @@ import useClientStore from '@/store/clientStore';
 import { Client } from '@/types/client';
 
 export default function AddClientPage() {
-  const addClient = useClientStore((state: any) => state.addClient);
+  const addClient = useClientStore((state) => state.addClient);
   
-  const handleAddClient = (data: Omit<Client, 'id' | 'createdAt' | 'tags'>) => {
+  const handleAddClient = (data: Omit<Client, 'id' | 'createdAt' | 'tags' | 'activities'>) => {
     addClient(data);
   };
 

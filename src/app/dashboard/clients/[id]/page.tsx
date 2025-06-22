@@ -1,26 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Card } from '@/components/ui/Card';
 import useClientStore from '@/store/clientStore';
 import { Client } from '@/types/client';
 
 export default function ClientDetailPage({ params }: { params: { id: string } }) {
-  const { getClientById, initializeClients, isInitialized } = useClientStore();
-  const [client, setClient] = useState<Client | null>(null);
+  const { initializeClients, isInitialized } = useClientStore();
+  const client = useClientStore((state) => state.clients.find((c) => c.id === params.id));
 
   useEffect(() => {
     if (!isInitialized) {
       initializeClients();
     }
   }, [isInitialized, initializeClients]);
-
-  useEffect(() => {
-    if (isInitialized) {
-      const foundClient = getClientById(params.id);
-      setClient(foundClient || null);
-    }
-  }, [isInitialized, params.id, getClientById]);
 
   if (!isInitialized || !client) {
     return (

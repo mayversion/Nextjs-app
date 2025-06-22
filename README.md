@@ -1,15 +1,70 @@
-# 🎯 Mini CRM - Next.js & Tailwind CSS
+# Mini CRM
 
-<div align="center">
+This is a Next.js application for a simple Customer Relationship Management (CRM) system. It allows users to manage a list of clients, including adding, viewing, and searching for them.
 
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white)
+## Features
 
-*Une application CRM moderne et élégante pour la gestion de la relation client*
+- **Client List**: View all clients in a sortable, paginated table.
+- **Add Client**: Add new clients through a dedicated form.
+- **Client Details**: View detailed information for each client.
+- **Search**: Real-time search functionality for clients.
+- **State Management**: Centralized state management using Zustand.
+- **Responsive Design**: The application is designed to work on various screen sizes.
+- **Localization**: Mock data uses Algerian names and phone numbers.
 
-</div>
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) - React Framework
+- [TypeScript](https://www.typescriptlang.org/) - Language
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
+- [Zustand](https://github.com/pmndrs/zustand) - State Management
+- [React Hook Form](https://react-hook-form.com/) - Form Handling
+- [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Testing
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or later recommended)
+- npm or yarn
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone <your-repository-url>
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd mini-crm
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+### Running the Development Server
+
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Project Structure
+
+The project follows a standard Next.js `app` directory structure:
+
+-   `src/app/`: Contains all the routes and pages.
+    -   `src/app/dashboard/`: Layout and pages for the main dashboard.
+-   `src/components/`: Shared React components.
+    -   `src/components/ui/`: Generic UI components like Button, Card, etc.
+-   `src/data/`: Mock data for the application.
+-   `src/hooks/`: Custom React hooks.
+-   `src/store/`: Zustand store for state management.
+-   `src/types/`: TypeScript type definitions.
 
 ---
 
