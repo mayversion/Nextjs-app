@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -18,14 +19,20 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.0.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.0.0",
+    "jest": "^30.0.2",
+    "jest-environment-jsdom": "^30.0.2",
     "postcss": "^8.0.0",
     "tailwindcss": "^3.3.0",
+    "ts-jest": "^29.4.0",
     "typescript": "^5.0.0"
   }
-} 
+}
