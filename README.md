@@ -1,4 +1,4 @@
-# Mini CRM
+# Front End Exercise – CRM Module (NextJS)
 
 This is a Next.js application for a simple Customer Relationship Management (CRM) system. It allows users to manage a list of clients, including adding, viewing, and searching for them.
 
